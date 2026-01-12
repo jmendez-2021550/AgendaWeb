@@ -9,6 +9,7 @@
     background-color: #f8f9fa;
 }
 
-.navbar {
-    background-color: #0d6efd !important;
+.navbar a.text-white:hover {
+    color: #e9ecef !important;
+    text-decoration: underline !important;
 }
