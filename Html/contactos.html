@@ -10,6 +10,8 @@
 </head>
 <body class="dark-theme">
 
+    <div class="bg-overlay"></div>
+
     <nav class="navbar navbar-expand-lg sticky-top custom-nav-pro">
         <div class="container py-2">
             <a class="navbar-brand logo-brand-lg" href="#">WorkFlow</a>
@@ -21,7 +23,7 @@
         </div>
     </nav>
 
-    <div class="container mt-5 pb-5">
+    <div class="container mt-5 pb-5 z-index-content">
         <div class="row justify-content-center">
             <div class="col-md-11 col-lg-9">
                 <div class="glass-card-contacts shadow-2xl">
@@ -29,7 +31,7 @@
                         <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-5 gap-3">
                             <div>
                                 <h2 class="title-gradient-lg mb-1">Lista de Contactos</h2>
-                                <p class="text-muted small mb-0">Gestiona y organiza tu red académica</p>
+                                <p class="text-white opacity-100 small mb-0">Gestiona y organiza tu red académica</p>
                             </div>
                             <a href="nuevocontact.html" class="btn btn-action-pro">
                                 <span class="me-2">+</span> Nuevo Contacto
@@ -37,66 +39,94 @@
                         </div>
                         
                         <div class="contact-list">
-                            <a href="detalles.html" class="contact-item-pro">
-                                <div class="avatar-pro bg-blue-pro">JP</div>
-                                <div class="contact-info">
-                                    <h6>Juan Pérez</h6>
-                                    <p>juan.perez@correo.com</p>
+                            <div class="contact-item-pro">
+                                <a href="detalles.html" class="d-flex align-items-center text-decoration-none flex-grow-1">
+                                    <div class="avatar-pro avatar-blue">JP</div>
+                                    <div class="contact-info">
+                                        <h6>Juan Pérez</h6>
+                                        <p>juan.perez@correo.com</p>
+                                    </div>
+                                    <div class="badge-status ms-auto d-none d-md-block">Institucional</div>
+                                </a>
+                                <div class="d-flex align-items-center gap-3 ms-4">
+                                    <button class="btn-fav" onclick="toggleFavorite(this)" title="Agregar a favoritos">★</button>
+                                    <a href="detalles.html" class="arrow-pro">Ver →</a>
                                 </div>
-                                <div class="badge-status">Institucional</div>
-                                <div class="arrow-pro">Ver detalles <span>→</span></div>
-                            </a>
+                            </div>
 
-                            <a href="detalles.html" class="contact-item-pro">
-                                <div class="avatar-pro bg-green-pro">MG</div>
-                                <div class="contact-info">
-                                    <h6>María García</h6>
-                                    <p>m.garcia@kinal.edu.gt</p>
+                            <div class="contact-item-pro">
+                                <a href="detalles.html" class="d-flex align-items-center text-decoration-none flex-grow-1">
+                                    <div class="avatar-pro avatar-green">MG</div>
+                                    <div class="contact-info">
+                                        <h6>María García</h6>
+                                        <p>m.garcia@kinal.edu.gt</p>
+                                    </div>
+                                    <div class="badge-status ms-auto d-none d-md-block">Catedrático</div>
+                                </a>
+                                <div class="d-flex align-items-center gap-3 ms-4">
+                                    <button class="btn-fav fav-active" onclick="toggleFavorite(this)" title="Quitar de favoritos">★</button>
+                                    <a href="detalles.html" class="arrow-pro">Ver →</a>
                                 </div>
-                                <div class="badge-status">Catedrático</div>
-                                <div class="arrow-pro">Ver detalles <span>→</span></div>
-                            </a>
+                            </div>
 
-                            <a href="detalles.html" class="contact-item-pro">
-                                <div class="avatar-pro bg-orange-pro">CL</div>
-                                <div class="contact-info">
-                                    <h6>Carlos López</h6>
-                                    <p>clopez88@gmail.com</p>
+                            <div class="contact-item-pro">
+                                <a href="detalles.html" class="d-flex align-items-center text-decoration-none flex-grow-1">
+                                    <div class="avatar-pro avatar-orange">CL</div>
+                                    <div class="contact-info">
+                                        <h6>Carlos López</h6>
+                                        <p>clopez88@gmail.com</p>
+                                    </div>
+                                    <div class="badge-status ms-auto d-none d-md-block">Estudiante</div>
+                                </a>
+                                <div class="d-flex align-items-center gap-3 ms-4">
+                                    <button class="btn-fav" onclick="toggleFavorite(this)" title="Agregar a favoritos">★</button>
+                                    <a href="detalles.html" class="arrow-pro">Ver →</a>
                                 </div>
-                                <div class="badge-status">Estudiante</div>
-                                <div class="arrow-pro">Ver detalles <span>→</span></div>
-                            </a>
+                            </div>
 
-                            <a href="detalles.html" class="contact-item-pro">
-                                <div class="avatar-pro bg-cyan-pro">AR</div>
-                                <div class="contact-info">
-                                    <h6>Ana Rodríguez</h6>
-                                    <p>ana_rodriguez@outlook.com</p>
+                            <div class="contact-item-pro">
+                                <a href="detalles.html" class="d-flex align-items-center text-decoration-none flex-grow-1">
+                                    <div class="avatar-pro avatar-cyan">AR</div>
+                                    <div class="contact-info">
+                                        <h6>Ana Rodríguez</h6>
+                                        <p>ana_rodriguez@outlook.com</p>
+                                    </div>
+                                    <div class="badge-status ms-auto d-none d-md-block">Estudiante</div>
+                                </a>
+                                <div class="d-flex align-items-center gap-3 ms-4">
+                                    <button class="btn-fav" onclick="toggleFavorite(this)" title="Agregar a favoritos">★</button>
+                                    <a href="detalles.html" class="arrow-pro">Ver →</a>
                                 </div>
-                                <div class="badge-status">Estudiante</div>
-                                <div class="arrow-pro">Ver detalles <span>→</span></div>
-                            </a>
+                            </div>
 
-                            <a href="detalles.html" class="contact-item-pro">
-                                <div class="avatar-pro bg-red-pro">LM</div>
-                                <div class="contact-info">
-                                    <h6>Luis Morales</h6>
-                                    <p>lmorales_kinal@kinal.edu.gt</p>
+                            <div class="contact-item-pro">
+                                <a href="detalles.html" class="d-flex align-items-center text-decoration-none flex-grow-1">
+                                    <div class="avatar-pro avatar-red">LM</div>
+                                    <div class="contact-info">
+                                        <h6>Luis Morales</h6>
+                                        <p>lmorales_kinal@kinal.edu.gt</p>
+                                    </div>
+                                    <div class="badge-status ms-auto d-none d-md-block">Institucional</div>
+                                </a>
+                                <div class="d-flex align-items-center gap-3 ms-4">
+                                    <button class="btn-fav" onclick="toggleFavorite(this)" title="Agregar a favoritos">★</button>
+                                    <a href="detalles.html" class="arrow-pro">Ver →</a>
                                 </div>
-                                <div class="badge-status">Institucional</div>
-                                <div class="arrow-pro">Ver detalles <span>→</span></div>
-                            </a>
+                            </div>
+
                         </div>
                     </div>
                 </div>
                 
                 <div class="text-center mt-5">
-                    <a href="favoritos.html" class="btn btn-action-pro" style="background: #475569;">
+                    <a href="favoritos.html" class="btn btn-action-pro btn-fav-list">
                         <span class="me-2">★</span> Ir a Mis Favoritos
                     </a>
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="../JavaScript/contactos.js"></script>
 </body>
 </html>

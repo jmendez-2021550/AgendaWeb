@@ -1,19 +1,32 @@
 :root {
     --bg-dark-deep: #020617;
-    --bg-dark-soft: #0f172a;
     --accent-blue: #3b82f6;
-    --glass-white: rgba(255, 255, 255, 0.03);
     --border-glass: rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(15, 23, 42, 0.85);
 }
 
 body {
     font-family: 'Inter', sans-serif;
-    background: radial-gradient(circle at top right, #1e293b, #020617);
+    background-color: var(--bg-dark-deep);
     color: #f8fafc;
+    margin: 0;
     min-height: 100vh;
 }
 
-/* --- NAVBAR PRO --- */
+.bg-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.9)), 
+                url('../image/fondoA2.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.z-index-content { position: relative; z-index: 10; }
+
+/* Navbar */
 .custom-nav-pro {
     background: rgba(2, 6, 23, 0.8);
     backdrop-filter: blur(20px);
@@ -21,28 +34,25 @@ body {
 }
 
 .logo-brand-lg {
-    font-weight: 800;
-    font-size: 1.8rem;
-    letter-spacing: -1px;
-    background: linear-gradient(to right, #3b82f6, #60a5fa);
+    font-weight: 800; font-size: 1.8rem;
+    background: linear-gradient(to right, #ffffff, #3b82f6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
+/* --- BOTONES NAV RESTAURADOS --- */
 .btn-nav-secondary {
     background: rgba(255, 255, 255, 0.05);
-    color: #94a3b8 !important;
+    color: #f8fafc !important;
     font-weight: 600;
     padding: 10px 20px;
     border-radius: 12px;
     border: 1px solid var(--border-glass);
-    text-decoration: none;
-    transition: all 0.3s ease;
+    transition: 0.3s;
 }
 
 .btn-nav-secondary:hover {
-    background: rgba(255, 255, 255, 0.1);
-    color: white !important;
+    background: var(--accent-blue);
     border-color: var(--accent-blue);
 }
 
@@ -52,85 +62,72 @@ body {
     border-radius: 12px;
     display: flex; align-items: center; justify-content: center;
     font-weight: 700;
-    box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
 }
 
-/* --- CARDS & TITLES --- */
+/* Card */
 .glass-card-contacts {
-    background: rgba(15, 23, 42, 0.6);
-    backdrop-filter: blur(12px);
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
     border: 1px solid var(--border-glass);
     border-radius: 32px;
 }
 
-.title-gradient-lg {
-    font-weight: 800; font-size: 2.2rem;
-    background: linear-gradient(to bottom, #fff, #94a3b8);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+.title-gradient-lg { font-weight: 800; font-size: 2.2rem; color: white; }
 
-/* --- BUTTONS --- */
-.btn-action-pro {
-    background: var(--accent-blue);
-    color: white !important;
-    font-weight: 700;
-    padding: 12px 28px;
-    border-radius: 14px;
-    border: none;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-}
-
-.btn-action-pro:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
-}
-
-/* --- CONTACT LIST --- */
-.contact-list { display: flex; flex-direction: column; gap: 0.8rem; }
-
+/* Lista de Contactos */
 .contact-item-pro {
     display: flex; align-items: center;
-    padding: 1rem;
-    text-decoration: none;
-    color: inherit;
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid transparent;
-    border-radius: 16px;
-    transition: 0.3s;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 14px;
+    padding: 18px 25px;
+    border-radius: 22px;
+    transition: 0.3s ease;
 }
 
 .contact-item-pro:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(59, 130, 246, 0.1);
     border-color: var(--accent-blue);
     transform: translateX(5px);
 }
 
+/* Colores de Iniciales Limpios con degradado */
 .avatar-pro {
-    width: 50px; height: 50px; border-radius: 12px;
+    width: 52px; height: 52px; border-radius: 14px;
     display: flex; align-items: center; justify-content: center;
-    font-weight: 800; margin-right: 1.2rem;
+    font-weight: 800; margin-right: 1.2rem; color: white;
 }
 
-.bg-blue-pro { background: #1e40af; }
-.bg-green-pro { background: #065f46; }
-.bg-orange-pro { background: #9a3412; }
-.bg-cyan-pro { background: #164e63; }
-.bg-red-pro { background: #7f1d1d; }
+.avatar-blue { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+.avatar-green { background: linear-gradient(135deg, #10b981, #047857); }
+.avatar-orange { background: linear-gradient(135deg, #f59e0b, #b45309); }
+.avatar-cyan { background: linear-gradient(135deg, #06b6d4, #0e7490); }
+.avatar-red { background: linear-gradient(135deg, #ef4444, #b91c1c); }
 
-.contact-info h6 { margin: 0; font-size: 1.1rem; font-weight: 700; }
-.contact-info p { margin: 0; color: #64748b; font-size: 0.85rem; }
+.contact-info h6 { color: white; margin: 0; font-weight: 700; }
+.contact-info p { color: #94a3b8; margin: 0; font-size: 0.85rem; }
 
+/* Badges alejados */
 .badge-status {
-    margin-left: auto;
-    background: rgba(59, 130, 246, 0.1);
-    color: var(--accent-blue);
-    padding: 4px 10px; border-radius: 6px;
-    font-size: 0.7rem; font-weight: 700;
+    background: rgba(255, 255, 255, 0.05);
+    color: #94a3b8; padding: 6px 14px;
+    border-radius: 10px; font-size: 0.7rem;
+    font-weight: 700; text-transform: uppercase;
 }
 
-.arrow-pro { margin-left: 1.5rem; color: #475569; font-size: 0.85rem; }
-.shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); }
+.btn-fav {
+    background: none; border: none; color: #475569;
+    font-size: 1.6rem; transition: 0.3s; cursor: pointer;
+}
+
+.btn-fav:hover, .fav-active { color: #facc15; transform: scale(1.2); }
+
+.btn-action-pro {
+    background: var(--accent-blue); color: white !important;
+    font-weight: 700; padding: 14px 30px; border-radius: 16px;
+    text-decoration: none; display: inline-block;
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+}
+
+.arrow-pro { color: var(--accent-blue); font-weight: 700; text-decoration: none; }
+.shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7); }
