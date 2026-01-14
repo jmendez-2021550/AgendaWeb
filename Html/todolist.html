@@ -5,72 +5,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WorkFlow - Mis Tareas</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Css/todolist.css">
 </head>
-<body class="bg-custom">
+<body class="dark-theme">
+    <div class="bg-overlay"></div>
 
-    <div class="container py-5">
+    <nav class="navbar navbar-expand-lg sticky-top custom-nav-pro">
+        <div class="container py-2">
+            <a class="navbar-brand logo-brand-lg" href="contactos.html">WorkFlow</a>
+            <div class="ms-auto d-flex align-items-center gap-2">
+                <a href="contactos.html" class="btn-nav-secondary">Contactos</a>
+                <div class="user-avatar-nav ms-2">JM</div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5 pb-5 z-index-content">
         <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6">
-                <div class="card shadow-lg border-0 rounded-4">
-                    <div class="card-header bg-dark text-white p-4 rounded-top-4">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <h2 class="mb-0 fw-bold">Lista de Tareas</h2>
-                            <span class="badge bg-primary">5 Pendientes</span>
+            <div class="col-lg-10">
+                <h2 class="title-gradient-lg mb-4">Gestión de Tareas</h2>
+                
+                <div class="glass-card-pro p-4 mb-5">
+                    <h5 class="text-white opacity-75 mb-4 fw-bold">Añadir Nueva Tarea</h5>
+                    <form id="formTarea" class="row g-3 align-items-end">
+                        <div class="col-md-5">
+                            <label class="form-label small opacity-50 text-white">¿Qué hay que hacer?</label>
+                            <input type="text" id="tituloTarea" class="input-pro" placeholder="Ej. Terminar informe técnico" required>
                         </div>
-                    </div>
-                    <div class="card-body p-0">
-                        <div class="list-group list-group-flush">
-                            
-                            <div class="list-group-item d-flex align-items-center p-3">
-                                <input class="form-check-input me-3 shadow-none" type="checkbox" checked>
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-0 text-decoration-line-through text-muted">Terminar Login de Agenda</h6>
-                                    <small class="badge bg-secondary">Completado</small>
-                                </div>
-                            </div>
-
-                            <div class="list-group-item d-flex align-items-center p-3">
-                                <input class="form-check-input me-3 shadow-none" type="checkbox">
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-0">Subir Laboratorio a GitHub</h6>
-                                    <small class="badge bg-danger">Prioridad Alta</small>
-                                </div>
-                            </div>
-
-                            <div class="list-group-item d-flex align-items-center p-3">
-                                <input class="form-check-input me-3 shadow-none" type="checkbox">
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-0">Estudiar para Examen de Programación</h6>
-                                    <small class="badge bg-warning text-dark">Pendiente</small>
-                                </div>
-                            </div>
-
-                            <div class="list-group-item d-flex align-items-center p-3">
-                                <input class="form-check-input me-3 shadow-none" type="checkbox">
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-0">Diseñar Vista de Perfil</h6>
-                                    <small class="badge bg-info text-dark">En progreso</small>
-                                </div>
-                            </div>
-
-                            <div class="list-group-item d-flex align-items-center p-3">
-                                <input class="form-check-input me-3 shadow-none" type="checkbox">
-                                <div class="flex-grow-1">
-                                    <h6 class="mb-0">Revisar Responsive Design</h6>
-                                    <small class="badge bg-primary">Opcional</small>
-                                </div>
-                            </div>
-
+                        <div class="col-md-3">
+                            <label class="form-label small opacity-50 text-white">Prioridad</label>
+                            <select id="prioridadTarea" class="input-pro select-dark" required>
+                                <option value="3">Prioridad Alta</option>
+                                <option value="2">Prioridad Media</option>
+                                <option value="1">Prioridad Baja</option>
+                            </select>
                         </div>
+                        <div class="col-md-2">
+                            <label class="form-label small opacity-50 text-white">Fecha</label>
+                            <input type="date" id="fechaTarea" class="input-pro" required>
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn-action-pro w-100 py-2">Añadir</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="glass-card-pro overflow-hidden">
+                    <div class="p-4 d-flex justify-content-between align-items-center">
+                        <h4 class="mb-0 fw-800 text-white">Pendientes</h4>
+                        <span id="contadorTareas" class="badge rounded-pill bg-primary px-3 py-2">0 Pendientes</span>
                     </div>
-                    <div class="card-footer bg-light p-3 text-center rounded-bottom-4">
-                        <a href="contactos.html" class="btn btn-outline-dark btn-sm rounded-pill px-4">Volver a Contactos</a>
-                    </div>
+                    <div id="contenedorTareas" class="px-4 pb-4">
+                        </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="modal fade" id="modalEditar" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content glass-modal text-white">
+                <div class="modal-header border-glass">
+                    <h5 class="modal-title fw-bold">Actualizar Tarea</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <input type="hidden" id="editId">
+                    <div class="mb-4">
+                        <label class="form-label opacity-75 small fw-bold">Descripción</label>
+                        <input type="text" id="editTitulo" class="input-pro">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label opacity-75 small fw-bold">Prioridad</label>
+                            <select id="editPrioridad" class="input-pro select-dark">
+                                <option value="3">Alta</option>
+                                <option value="2">Media</option>
+                                <option value="1">Baja</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label opacity-75 small fw-bold">Fecha Límite</label>
+                            <input type="date" id="editFecha" class="input-pro">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-glass">
+                    <button type="button" class="btn btn-nav-secondary py-2" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn-action-pro px-4 py-2" onclick="guardarEdicion()">Guardar Cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../JavaScript/todolist.js"></script>
 </body>
 </html>
