@@ -5,31 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WorkFlow - Nuevo Contacto</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../Css/login.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Css/nuevocontact.css">
 </head>
-<body class="bg-custom">
-    <div class="container py-5">
+<body class="dark-theme">
+
+    <div class="bg-overlay"></div>
+
+    <nav class="navbar navbar-expand-lg sticky-top custom-nav-pro">
+        <div class="container py-2">
+            <a class="navbar-brand logo-brand-lg" href="contactos.html">WorkFlow</a>
+            <div class="ms-auto d-flex align-items-center gap-3">
+                <a href="todolist.html" class="btn btn-nav-secondary">Tareas</a>
+                <a href="perfil.html" class="btn btn-nav-secondary">Mi Perfil</a>
+                <div class="user-avatar-nav ms-2">JM</div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5 pb-5 z-index-content">
         <div class="row justify-content-center">
-            <div class="col-md-6">
-                <div class="card shadow border-0 rounded-4">
-                    <div class="card-body p-4">
-                        <h2 class="text-primary fw-bold mb-4 text-center">Agregar Contacto</h2>
+            <div class="col-md-8 col-lg-6">
+                <div class="glass-card-pro shadow-2xl">
+                    <div class="card-body p-4 p-md-5">
+                        <div class="text-center mb-5">
+                            <h2 class="title-gradient-lg mb-2">Nuevo Contacto</h2>
+                            <p class="text-white-50">Completa la información académica</p>
+                        </div>
+
                         <form action="contactos.html">
-                            <div class="mb-3">
-                                <label class="form-label fw-semibold">Nombre Completo</label>
-                                <input type="text" class="form-control bg-light" placeholder="Ej. Juan Pérez" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label fw-semibold">Teléfono</label>
-                                <input type="tel" class="form-control bg-light" placeholder="1234-5678" required>
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label fw-semibold">Correo Electrónico</label>
-                                <input type="email" class="form-control bg-light" placeholder="correo@ejemplo.com">
-                            </div>
-                            <div class="d-flex gap-2">
-                                <button type="submit" class="btn btn-primary w-100">Guardar</button>
-                                <a href="contactos.html" class="btn btn-outline-secondary w-100">Cancelar</a>
+                            <div class="row">
+                                <div class="col-12 mb-4">
+                                    <label class="form-label-custom">Nombre Completo</label>
+                                    <input type="text" class="input-pro" placeholder="Ej. Juan Pérez" required>
+                                </div>
+
+                                <div class="col-md-6 mb-4">
+                                    <label class="form-label-custom">Teléfono</label>
+                                    <input type="tel" class="input-pro" placeholder="1234-5678" required>
+                                </div>
+
+                                <div class="col-md-6 mb-4">
+                                    <label class="form-label-custom">Correo Electrónico</label>
+                                    <input type="email" class="input-pro" placeholder="correo@ejemplo.com">
+                                </div>
+
+                                <div class="col-12 mb-4">
+                                    <label class="form-label-custom">Categoría</label>
+                                    <select class="input-pro">
+                                        <option value="estudiante">Estudiante</option>
+                                        <option value="institucional">Institucional</option>
+                                        <option value="catedratico">Catedrático</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-12 mb-5">
+                                    <label class="form-label-custom">Notas Adicionales</label>
+                                    <textarea class="input-pro" rows="3" placeholder="Ej. Compañero de proyecto de Programación..."></textarea>
+                                </div>
+
+                                <div class="col-12 d-flex gap-3">
+                                    <button type="submit" class="btn btn-action-pro w-100">Guardar Contacto</button>
+                                    <a href="contactos.html" class="btn btn-outline-custom w-100">Cancelar</a>
+                                </div>
                             </div>
                         </form>
                     </div>
