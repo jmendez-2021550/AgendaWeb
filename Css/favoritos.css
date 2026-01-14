@@ -1,0 +1,87 @@
+:root {
+    --bg-dark-deep: #020617;
+    --accent-blue: #3b82f6;
+    --border-glass: rgba(255, 255, 255, 0.1);
+    --glass-bg: rgba(15, 23, 42, 0.85);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark-deep);
+    color: #f8fafc;
+    margin: 0;
+    min-height: 100vh;
+}
+
+.bg-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.95)), 
+                url('../image/fondoA2.jpg');
+    background-size: cover;
+    z-index: -1;
+}
+
+.z-index-content { position: relative; z-index: 10; }
+
+/* Navbar */
+.custom-nav-pro {
+    background: rgba(2, 6, 23, 0.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-glass);
+}
+
+.logo-brand-lg {
+    font-weight: 800; font-size: 1.8rem;
+    background: linear-gradient(to right, #ffffff, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+}
+
+.btn-nav-secondary {
+    background: rgba(255, 255, 255, 0.05);
+    color: #f8fafc !important;
+    font-weight: 600; padding: 10px 20px;
+    border-radius: 12px; border: 1px solid var(--border-glass);
+    transition: 0.3s; text-decoration: none;
+}
+
+.btn-nav-secondary:hover { background: rgba(255, 255, 255, 0.15); }
+
+.user-avatar-nav {
+    width: 45px; height: 45px; background: var(--accent-blue);
+    border-radius: 12px; display: flex; align-items: center; justify-content: center; font-weight: 700;
+}
+
+/* Cards de Favoritos */
+.glass-card-pro {
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border: 1px solid var(--border-glass);
+    border-radius: 24px;
+    transition: 0.3s ease;
+}
+
+.glass-card-pro:hover {
+    transform: translateY(-5px);
+    border-color: rgba(250, 204, 21, 0.4);
+    box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
+}
+
+.title-gradient-lg {
+    font-weight: 800; font-size: 2.2rem; color: white;
+}
+
+.avatar-fav {
+    width: 50px; height: 50px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; background: linear-gradient(135deg, #facc15, #eab308);
+    color: #422006;
+}
+
+.fav-info h6 { color: white; margin: 0; font-weight: 700; }
+.fav-info p { color: #94a3b8; margin: 0; font-size: 0.85rem; }
+
+.shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8); }
