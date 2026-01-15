@@ -24,17 +24,17 @@
                             <p class="text-light-50 mt-3 small text-uppercase tracking-widest">Agenda Institucional</p>
                         </div>
 
-                        <form action="contactos.html">
+                           <form id="loginForm">
                             <div class="mb-4">
                                 <label class="form-label text-light fw-light small">CORREO ELECTRÓNICO</label>
-                                <input type="email" class="form-control dark-input" 
-                                       placeholder="ejemplo@kinal.edu.gt" required>
+                                <input id="email" type="email" class="form-control dark-input" 
+                                    placeholder="ejemplo@kinal.edu.gt" required>
                             </div>
 
                             <div class="mb-5">
                                 <label class="form-label text-light fw-light small">CONTRASEÑA</label>
-                                <input type="password" class="form-control dark-input" 
-                                       placeholder="••••••••" required>
+                                <input id="password" type="password" class="form-control dark-input" 
+                                    placeholder="••••••••" required>
                             </div>
 
                             <div class="d-grid">
@@ -43,6 +43,8 @@
                                 </button>
                             </div>
                         </form>
+
+                        <script src="../JavaScript/login.js"></script>
 
                         <div class="text-center mt-4">
                             <a href="#" class="forgot-link">¿Problemas para entrar?</a>
