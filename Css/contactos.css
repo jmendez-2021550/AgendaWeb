@@ -3,6 +3,7 @@
     --accent-blue: #3b82f6;
     --border-glass: rgba(255, 255, 255, 0.1);
     --glass-bg: rgba(15, 23, 42, 0.85);
+    --danger-red: #ef4444;
 }
 
 body {
@@ -38,9 +39,9 @@ body {
     background: linear-gradient(to right, #ffffff, #3b82f6);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-decoration: none;
 }
 
-/* --- BOTONES NAV RESTAURADOS --- */
 .btn-nav-secondary {
     background: rgba(255, 255, 255, 0.05);
     color: #f8fafc !important;
@@ -54,14 +55,6 @@ body {
 .btn-nav-secondary:hover {
     background: var(--accent-blue);
     border-color: var(--accent-blue);
-}
-
-.user-avatar-nav {
-    width: 45px; height: 45px;
-    background: var(--accent-blue);
-    border-radius: 12px;
-    display: flex; align-items: center; justify-content: center;
-    font-weight: 700;
 }
 
 /* Card */
@@ -91,7 +84,6 @@ body {
     transform: translateX(5px);
 }
 
-/* Colores de Iniciales Limpios con degradado */
 .avatar-pro {
     width: 52px; height: 52px; border-radius: 14px;
     display: flex; align-items: center; justify-content: center;
@@ -107,7 +99,6 @@ body {
 .contact-info h6 { color: white; margin: 0; font-weight: 700; }
 .contact-info p { color: #94a3b8; margin: 0; font-size: 0.85rem; }
 
-/* Badges alejados */
 .badge-status {
     background: rgba(255, 255, 255, 0.05);
     color: #94a3b8; padding: 6px 14px;
@@ -122,10 +113,26 @@ body {
 
 .btn-fav:hover, .fav-active { color: #facc15; transform: scale(1.2); }
 
+/* BOTÓN ELIMINAR */
+.btn-delete-pro {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    color: var(--danger-red);
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    transition: 0.3s; cursor: pointer;
+}
+
+.btn-delete-pro:hover {
+    background: var(--danger-red);
+    color: white;
+    transform: rotate(10deg) scale(1.1);
+}
+
 .btn-action-pro {
     background: var(--accent-blue); color: white !important;
     font-weight: 700; padding: 14px 30px; border-radius: 16px;
-    text-decoration: none; display: inline-block;
     box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
 }
 
